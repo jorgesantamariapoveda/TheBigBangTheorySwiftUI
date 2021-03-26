@@ -60,8 +60,7 @@
 		CF003C3E260E748E00E6B79B /* TheBigBangTheorySwiftUI */ = {
 			isa = PBXGroup;
 			children = (
-				CF003C3F260E748E00E6B79B /* TheBigBangTheorySwiftUIApp.swift */,
-				CF003C41260E748E00E6B79B /* ContentView.swift */,
+				CF003CB9260E8DAD00E6B79B /* App */,
 				CF003CAC260E7B7500E6B79B /* Episodes */,
 				CF003CB1260E7BC100E6B79B /* Favorites */,
 				CF003C43260E748F00E6B79B /* Assets.xcassets */,
@@ -95,6 +94,15 @@
 				CF003CA9260E7B4700E6B79B /* FavoriteList.swift */,
 			);
 			name = Favorites;
+			sourceTree = "<group>";
+		};
+		CF003CB9260E8DAD00E6B79B /* App */ = {
+			isa = PBXGroup;
+			children = (
+				CF003C3F260E748E00E6B79B /* TheBigBangTheorySwiftUIApp.swift */,
+				CF003C41260E748E00E6B79B /* ContentView.swift */,
+			);
+			name = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
