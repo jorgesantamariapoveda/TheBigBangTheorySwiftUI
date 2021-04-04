@@ -8,11 +8,11 @@
 import Foundation
 
 struct Episode: Codable, Identifiable {
+    let id: Int
     let season: Int
     let number: Int
     let summary: String
     let runtime: Int
-    let id: Int
     let airdate: String
     let image: String
     let name: String
