@@ -12,8 +12,8 @@ struct ContentView: View {
         TabView {
             EpisodeList()
                 .tabItem {
-                    Image(systemName: "film")
                     Text("Episodes")
+                    Image(systemName: "film")
                 }
             FavoriteList()
                 .tabItem {

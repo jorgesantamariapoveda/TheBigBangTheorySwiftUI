@@ -15,6 +15,7 @@
 		CF003CA7260E7B3B00E6B79B /* EpisodeDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF003CA6260E7B3B00E6B79B /* EpisodeDetail.swift */; };
 		CF003CAA260E7B4700E6B79B /* FavoriteList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF003CA9260E7B4700E6B79B /* FavoriteList.swift */; };
 		CF003CB4260E7D1600E6B79B /* BigBang.json in Resources */ = {isa = PBXBuildFile; fileRef = CF003CB3260E7D1600E6B79B /* BigBang.json */; };
+		CFB26BA726125F8C00605A1D /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB26BA626125F8C00605A1D /* Model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		CF003CA6260E7B3B00E6B79B /* EpisodeDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetail.swift; sourceTree = "<group>"; };
 		CF003CA9260E7B4700E6B79B /* FavoriteList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteList.swift; sourceTree = "<group>"; };
 		CF003CB3260E7D1600E6B79B /* BigBang.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BigBang.json; sourceTree = "<group>"; };
+		CFB26BA626125F8C00605A1D /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				CF003CB9260E8DAD00E6B79B /* App */,
 				CF003CAC260E7B7500E6B79B /* Episodes */,
 				CF003CB1260E7BC100E6B79B /* Favorites */,
+				CFB26BA9261260B000605A1D /* Model */,
 				CF003C43260E748F00E6B79B /* Assets.xcassets */,
 				CF003C48260E748F00E6B79B /* Info.plist */,
 				CF003CB3260E7D1600E6B79B /* BigBang.json */,
@@ -103,6 +106,14 @@
 				CF003C41260E748E00E6B79B /* ContentView.swift */,
 			);
 			name = App;
+			sourceTree = "<group>";
+		};
+		CFB26BA9261260B000605A1D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CFB26BA626125F8C00605A1D /* Model.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -178,6 +189,7 @@
 				CF003CAA260E7B4700E6B79B /* FavoriteList.swift in Sources */,
 				CF003C42260E748E00E6B79B /* ContentView.swift in Sources */,
 				CF003C40260E748E00E6B79B /* TheBigBangTheorySwiftUIApp.swift in Sources */,
+				CFB26BA726125F8C00605A1D /* Model.swift in Sources */,
 				CF003CA7260E7B3B00E6B79B /* EpisodeDetail.swift in Sources */,
 				CF003CA4260E7B2F00E6B79B /* EpisodeList.swift in Sources */,
 			);

@@ -25,11 +25,6 @@ struct EpisodeList: View {
                            maximumValueLabel: Text("5"),
                            label: { Text("Espaciado") })
                 }
-                Spacer()
-                Image(systemName: "person")
-                    .resizable()
-                    .frame(width: 100, height: 100)
-                    .padding(.horizontal)
             }
         }
     }
