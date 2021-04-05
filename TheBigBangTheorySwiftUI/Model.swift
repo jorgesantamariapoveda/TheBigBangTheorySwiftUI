@@ -30,6 +30,7 @@ struct EpisodeEditable: Codable, Identifiable {
 
 struct PersistenceModel {
     static let shared = PersistenceModel()
+    static private let filenameEpisoseEditable = "episodesEditable"
 
     func loadModel() -> [Episode] {
         guard let url = Bundle.main.url(forResource: "BigBang", withExtension: "json") else {
@@ -46,7 +47,7 @@ struct PersistenceModel {
         guard var url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
             return []
         }
-        url.appendPathComponent("episodesEditable")
+        url.appendPathComponent(PersistenceModel.filenameEpisoseEditable)
         url.appendPathExtension("json")
 
         if let model = loadJSON(url: url, type: [EpisodeEditable].self) {
@@ -62,6 +63,20 @@ struct PersistenceModel {
         } catch {
             print("Error en la carga \(error)")
             return nil
+        }
+    }
+
+    func saveJSON<T:Codable>(data:[T]) {
+        guard var url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
+            return
+        }
+        url.appendPathComponent(PersistenceModel.filenameEpisoseEditable)
+        url.appendPathExtension("json")
+        do {
+            let json = try JSONEncoder().encode(data)
+            try json.write(to: url, options: [.atomicWrite, .completeFileProtection])
+        } catch {
+            print("Error en la carga \(error)")
         }
     }
 

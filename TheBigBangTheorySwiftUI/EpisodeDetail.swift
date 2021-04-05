@@ -30,7 +30,11 @@ struct EpisodeDetail: View {
                     .padding([.horizontal, .top])
                 Text("URL: \(episode.url)")
                     .font(.footnote)
-                    .padding([.horizontal, .top, .bottom])
+                    .padding([.horizontal, .top])
+                Divider()
+                    .padding()
+                EpisodeSeason(episode: episode, showNameEpisode: false)
+                    .padding(.horizontal)
             }
         }
         .navigationBarTitle("\(episode.name)", displayMode: .inline)

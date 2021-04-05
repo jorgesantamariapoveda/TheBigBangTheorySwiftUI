@@ -24,7 +24,7 @@ struct EpisodeList: View {
                             ForEach(episodesViewModel.episodesBySeason(season: season)) { episode in
                                 NavigationLink(
                                     destination: EpisodeDetail(episode: episode),
-                                    label: { EpisodeView(episode: episode) }
+                                    label: { EpisodeSeason(episode: episode, showNameEpisode: true) }
                                 )
                             }
                         },
@@ -57,42 +57,6 @@ struct SeasonView: View {
                     .font(.footnote)
             }.padding([.horizontal, .bottom])
         }
-    }
-}
-
-struct EpisodeView: View {
-    let episode: Episode
-
-    @State private var isShow: Bool = false
-    @State private var isFavorite: Bool = false
-    @State private var numStars: Int = 1
-    @State private var notes: String = ""
-
-    var body: some View {
-        VStack(spacing: 8) {
-            Text("[\(episode.number)] \(episode.name)").bold()
-            Toggle("Viewed", isOn: $isShow)
-            Toggle("Favorite", isOn: $isFavorite)
-            HStack {
-                Text("Stars")
-                Picker("Stars", selection: $numStars) {
-//                    ForEach(1..<3) { item in
-//                        StarView(star: item, numStars: numStars)
-//                    }
-                    StarView(star: 1, numStars: numStars)
-                    StarView(star: 2, numStars: numStars)
-                    StarView(star: 3, numStars: numStars)
-                    StarView(star: 4, numStars: numStars)
-                    StarView(star: 5, numStars: numStars)
-                }
-                .pickerStyle(SegmentedPickerStyle())
-            }
-            HStack {
-                Text("Notes")
-                TextField("Notes...", text: $notes)
-            }
-        }
-        .frame(alignment: .leading)
     }
 }
 

@@ -17,6 +17,7 @@
 		CF003CB4260E7D1600E6B79B /* BigBang.json in Resources */ = {isa = PBXBuildFile; fileRef = CF003CB3260E7D1600E6B79B /* BigBang.json */; };
 		CF407031261AF90300910075 /* ViewModelEpisodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF407030261AF90300910075 /* ViewModelEpisodes.swift */; };
 		CFB26BA726125F8C00605A1D /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB26BA626125F8C00605A1D /* Model.swift */; };
+		CFF72B90261B5E91007304D5 /* EpisodeSeason.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF72B8F261B5E91007304D5 /* EpisodeSeason.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		CF003CB3260E7D1600E6B79B /* BigBang.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BigBang.json; sourceTree = "<group>"; };
 		CF407030261AF90300910075 /* ViewModelEpisodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelEpisodes.swift; sourceTree = "<group>"; };
 		CFB26BA626125F8C00605A1D /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		CFF72B8F261B5E91007304D5 /* EpisodeSeason.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeSeason.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				CF003CA3260E7B2F00E6B79B /* EpisodeList.swift */,
+				CFF72B8F261B5E91007304D5 /* EpisodeSeason.swift */,
 				CF003CA6260E7B3B00E6B79B /* EpisodeDetail.swift */,
 			);
 			name = Episodes;
@@ -189,6 +192,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFF72B90261B5E91007304D5 /* EpisodeSeason.swift in Sources */,
 				CF003CAA260E7B4700E6B79B /* FavoriteList.swift in Sources */,
 				CF003C42260E748E00E6B79B /* ContentView.swift in Sources */,
 				CF003C40260E748E00E6B79B /* TheBigBangTheorySwiftUIApp.swift in Sources */,
