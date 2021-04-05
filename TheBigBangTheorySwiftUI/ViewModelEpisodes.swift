@@ -16,15 +16,6 @@ final class ViewModelEpisodes: ObservableObject {
         Array(Set(episodes.map { $0.season })).sorted()
     }
 
-//    var seasons: [Int: [Episode]] {
-//        let groups = Dictionary(grouping: episodes) { (episode:Episode) in
-//            episode.season
-//        }.values.sorted(by: {
-//            ($0.first?.season ?? 0) < ($1.first?.season ?? 0)
-//        })
-//        return groups
-//    }
-
     init() {
         episodes = PersistenceModel.shared.loadModel()
         episodesEditables = PersistenceModel.shared.loadModelEditable()
