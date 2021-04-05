@@ -15,6 +15,7 @@
 		CF003CA7260E7B3B00E6B79B /* EpisodeDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF003CA6260E7B3B00E6B79B /* EpisodeDetail.swift */; };
 		CF003CAA260E7B4700E6B79B /* FavoriteList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF003CA9260E7B4700E6B79B /* FavoriteList.swift */; };
 		CF003CB4260E7D1600E6B79B /* BigBang.json in Resources */ = {isa = PBXBuildFile; fileRef = CF003CB3260E7D1600E6B79B /* BigBang.json */; };
+		CF407031261AF90300910075 /* ViewModelEpisodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF407030261AF90300910075 /* ViewModelEpisodes.swift */; };
 		CFB26BA726125F8C00605A1D /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB26BA626125F8C00605A1D /* Model.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +30,7 @@
 		CF003CA6260E7B3B00E6B79B /* EpisodeDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetail.swift; sourceTree = "<group>"; };
 		CF003CA9260E7B4700E6B79B /* FavoriteList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteList.swift; sourceTree = "<group>"; };
 		CF003CB3260E7D1600E6B79B /* BigBang.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BigBang.json; sourceTree = "<group>"; };
+		CF407030261AF90300910075 /* ViewModelEpisodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelEpisodes.swift; sourceTree = "<group>"; };
 		CFB26BA626125F8C00605A1D /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -111,6 +113,7 @@
 		CFB26BA9261260B000605A1D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CF407030261AF90300910075 /* ViewModelEpisodes.swift */,
 				CFB26BA626125F8C00605A1D /* Model.swift */,
 			);
 			name = Model;
@@ -191,6 +194,7 @@
 				CF003C40260E748E00E6B79B /* TheBigBangTheorySwiftUIApp.swift in Sources */,
 				CFB26BA726125F8C00605A1D /* Model.swift in Sources */,
 				CF003CA7260E7B3B00E6B79B /* EpisodeDetail.swift in Sources */,
+				CF407031261AF90300910075 /* ViewModelEpisodes.swift in Sources */,
 				CF003CA4260E7B2F00E6B79B /* EpisodeList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

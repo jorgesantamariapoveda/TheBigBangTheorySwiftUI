@@ -8,13 +8,15 @@
 import SwiftUI
 
 struct EpisodeDetail: View {
+    let episode: Episode
+
     var body: some View {
-        Text("Episode detail")
+        Text("\(episode.name)")
     }
 }
 
 struct EpisodeDetail_Previews: PreviewProvider {
     static var previews: some View {
-        EpisodeDetail()
+        EpisodeDetail(episode: PersistenceModel.shared.testEpisode())
     }
 }
