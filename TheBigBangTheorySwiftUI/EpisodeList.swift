@@ -10,16 +10,12 @@ import SwiftUI
 struct EpisodeList: View {
     @EnvironmentObject var episodesViewModel: ViewModelEpisodes
     
-    @State private var isExpanded = false
-    @State private var isWatchedAllEpisodes = false
-    @State private var isExpandedSeasons: [Bool] = []
-
     var body: some View {
         NavigationView {
             List {
                 ForEach(episodesViewModel.seasons, id:\.self) { season in
-                    DisclosureGroup(
-                        isExpanded: $isExpanded,
+                    Section(
+                        header: SeasonView(season: season),
                         content: {
                             ForEach(episodesViewModel.episodesBySeason(season: season)) { episode in
                                 NavigationLink(
@@ -27,28 +23,25 @@ struct EpisodeList: View {
                                     label: { EpisodeSeason(episode: episode, showNameEpisode: true) }
                                 )
                             }
-                        },
-                        label: { SeasonView(isShowAllEpisodesSeason: $isWatchedAllEpisodes, season: season)}
+                        }
                     )
                 }
-            }.listStyle(InsetGroupedListStyle())
+            }
+            .listStyle(InsetGroupedListStyle())
             .navigationTitle("Episodes")
-        }
-        .onAppear {
-            isExpandedSeasons.append(contentsOf: Array(repeating: false, count: episodesViewModel.seasons.count))
         }
     }
 }
 
 struct SeasonView: View {
-    @Binding var isShowAllEpisodesSeason: Bool
+    @State var isShowAllEpisodesSeason: Bool = false
 
     let season: Int
 
     var body: some View {
         VStack {
             Text("Season \(season)")
-                .font(.title)
+                .font(.title2).bold()
             Image("season\(season)")
                 .resizable()
                 .scaledToFit()
@@ -57,15 +50,6 @@ struct SeasonView: View {
                     .font(.footnote)
             }.padding([.horizontal, .bottom])
         }
-    }
-}
-
-struct StarView: View {
-    let star: Int
-    let numStars: Int
-
-    var body: some View {
-        Image(systemName: numStars >= star ? "star.fill" : "star").tag(star)
     }
 }
 

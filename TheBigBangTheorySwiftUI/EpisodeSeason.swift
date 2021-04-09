@@ -26,14 +26,9 @@ struct EpisodeSeason: View {
             HStack {
                 Text("Stars")
                 Picker("Stars", selection: $numStars) {
-//                    ForEach(1..<3) { item in
-//                        StarView(star: item, numStars: numStars)
-//                    }
-                    StarView(star: 1, numStars: numStars)
-                    StarView(star: 2, numStars: numStars)
-                    StarView(star: 3, numStars: numStars)
-                    StarView(star: 4, numStars: numStars)
-                    StarView(star: 5, numStars: numStars)
+                    ForEach(1..<6) { item in
+                        Image(systemName: numStars + 1 >= item ? "star.fill" : "star").tag(item)
+                    }
                 }
                 .pickerStyle(SegmentedPickerStyle())
             }
@@ -43,7 +38,8 @@ struct EpisodeSeason: View {
             }
         }
         .frame(alignment: .leading)
-    }}
+    }
+}
 
 struct EpisodeSeason_Previews: PreviewProvider {
     static var previews: some View {

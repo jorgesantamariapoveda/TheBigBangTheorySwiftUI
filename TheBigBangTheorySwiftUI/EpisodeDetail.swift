@@ -16,6 +16,7 @@ struct EpisodeDetail: View {
                 Image("\(episode.image)")
                     .resizable()
                     .scaledToFit()
+                    .cornerRadius(10)
                 HStack {
                     Text("Episode: \(episode.number)")
                     Spacer()

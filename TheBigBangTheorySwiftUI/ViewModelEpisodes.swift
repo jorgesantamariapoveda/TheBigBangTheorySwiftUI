@@ -10,6 +10,7 @@ import SwiftUI
 final class ViewModelEpisodes: ObservableObject {
 
     @Published var episodes: [Episode]
+    
     @Published var episodesEditables: [EpisodeEditable] {
         didSet {
             PersistenceModel.shared.saveJSON(data: episodesEditables)
@@ -38,20 +39,24 @@ final class ViewModelEpisodes: ObservableObject {
         }
     }
 
+    // MARK: - Episodes...
+
     func episodesBySeason(season: Int) -> [Episode] {
         episodes.filter { $0.season == season}.sorted { $0.id < $1.id }
-    }
-
-    func updateEpisodeEditable(episode: EpisodeEditable, index: Int) {
-        episodesEditables[index] = episode
-    }
-
-    func episodesFavorites() -> [EpisodeEditable] {
-        episodesEditables.filter { $0.isFavorite }
     }
 
     func episodeById(id: Int) -> Episode? {
         episodes.filter { $0.id == id }.first ?? nil
     }
-    
+
+    // MARK: - Episodes editables...
+
+    func updateEpisodeEditable(episode: EpisodeEditable, index: Int) {
+        episodesEditables[index] = episode
+    }
+
+    func episodesEditablesFavorites() -> [EpisodeEditable] {
+        episodesEditables.filter { $0.isFavorite }
+    }
+
 }
