@@ -8,7 +8,10 @@
 import SwiftUI
 
 struct EpisodeList: View {
+
     @EnvironmentObject var episodesViewModel: ViewModelEpisodes
+
+    @State var showSeason: [Bool] = []
     
     var body: some View {
         NavigationView {
@@ -30,10 +33,14 @@ struct EpisodeList: View {
             .listStyle(InsetGroupedListStyle())
             .navigationTitle("Episodes")
         }
+        .onAppear {
+            showSeason.append(contentsOf: Array(repeating: false, count: episodesViewModel.seasons.count))
+        }
     }
 }
 
 struct SeasonView: View {
+
     @State var isShowAllEpisodesSeason: Bool = false
 
     let season: Int
@@ -48,12 +55,14 @@ struct SeasonView: View {
             HStack {
                 Toggle("Watched all episodes", isOn: $isShowAllEpisodesSeason)
                     .font(.footnote)
-            }.padding([.horizontal, .bottom])
+            }
+            .padding([.horizontal, .bottom])
         }
     }
 }
 
 struct EpisodeList_Previews: PreviewProvider {
+
     static var episodesViewModel = ViewModelEpisodes()
 
     static var previews: some View {

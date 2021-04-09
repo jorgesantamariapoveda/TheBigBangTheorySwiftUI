@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct FavoriteList: View {
+
     @EnvironmentObject var episodesViewModel: ViewModelEpisodes
 
     var body: some View {
@@ -31,16 +32,8 @@ struct FavoriteList: View {
     }
 }
 
-struct FavoriteList_Previews: PreviewProvider {
-    static var episodesViewModel = ViewModelEpisodes()
-
-    static var previews: some View {
-        FavoriteList()
-            .environmentObject(episodesViewModel)
-    }
-}
-
 struct FavoriteView: View {
+
     let episode: Episode
     let episodeFavorite: EpisodeEditable
 
@@ -61,5 +54,15 @@ struct FavoriteView: View {
                 .font(.footnote)
         }
         .padding(8)
+    }
+}
+
+struct FavoriteList_Previews: PreviewProvider {
+    
+    static var episodesViewModel = ViewModelEpisodes()
+
+    static var previews: some View {
+        FavoriteList()
+            .environmentObject(episodesViewModel)
     }
 }

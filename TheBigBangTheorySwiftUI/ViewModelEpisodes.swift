@@ -42,7 +42,7 @@ final class ViewModelEpisodes: ObservableObject {
     // MARK: - Episodes...
 
     func episodesBySeason(season: Int) -> [Episode] {
-        episodes.filter { $0.season == season}.sorted { $0.id < $1.id }
+        episodes.filter { $0.season == season }.sorted { $0.id < $1.id }
     }
 
     func episodeById(id: Int) -> Episode? {
@@ -57,6 +57,22 @@ final class ViewModelEpisodes: ObservableObject {
 
     func episodesEditablesFavorites() -> [EpisodeEditable] {
         episodesEditables.filter { $0.isFavorite }
+    }
+
+    func selectedAllEpisodesBySeason(season: Int) {
+        let episodesEditablesSeason = episodesEditables.filter { $0.season == season }
+        episodesEditablesSeason.forEach { episode in
+            if let index = episodesEditables.firstIndex(where: { $0.id == episode.id }) {
+                let newEpisodeEditable = EpisodeEditable(
+                    id: episode.id,
+                    season: episode.season,
+                    viewed: true,
+                    isFavorite: episode.isFavorite,
+                    score: episode.season,
+                    notes: episode.notes)
+                episodesEditables[index] = newEpisodeEditable
+            }
+        }
     }
 
 }

@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct EpisodeDetail: View {
+
+    @EnvironmentObject var episodesViewModel: ViewModelEpisodes
+    
     let episode: Episode
 
     var body: some View {
@@ -43,7 +46,11 @@ struct EpisodeDetail: View {
 }
 
 struct EpisodeDetail_Previews: PreviewProvider {
+    
+    static var episodesViewModel = ViewModelEpisodes()
+
     static var previews: some View {
         EpisodeDetail(episode: PersistenceModel.shared.testEpisode())
+            .environmentObject(episodesViewModel)
     }
 }

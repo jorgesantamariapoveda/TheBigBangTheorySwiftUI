@@ -22,13 +22,14 @@ struct Episode: Codable, Identifiable, Hashable {
 struct EpisodeEditable: Codable, Identifiable {
     let id: Int
     let season: Int
-    let viewed: Bool
-    let isFavorite: Bool
-    let score: Int
-    let notes: String
+    var viewed: Bool
+    var isFavorite: Bool
+    var score: Int
+    var notes: String
 }
 
 struct PersistenceModel {
+
     static let shared = PersistenceModel()
     static private let filenameEpisoseEditable = "episodesEditable"
 

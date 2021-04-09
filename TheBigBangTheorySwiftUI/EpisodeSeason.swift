@@ -8,9 +8,12 @@
 import SwiftUI
 
 struct EpisodeSeason: View {
+
+    @EnvironmentObject var episodesViewModel: ViewModelEpisodes
+
     let episode: Episode
     let showNameEpisode: Bool
-
+    
     @State private var isShow: Bool = false
     @State private var isFavorite: Bool = false
     @State private var numStars: Int = 1
@@ -37,12 +40,15 @@ struct EpisodeSeason: View {
                 TextEditor(text: $notes)
             }
         }
-        .frame(alignment: .leading)
     }
 }
 
 struct EpisodeSeason_Previews: PreviewProvider {
+    
+    static var episodesViewModel = ViewModelEpisodes()
+    
     static var previews: some View {
         EpisodeSeason(episode: PersistenceModel.shared.testEpisode(), showNameEpisode: true)
+            .environmentObject(episodesViewModel)
     }
 }
