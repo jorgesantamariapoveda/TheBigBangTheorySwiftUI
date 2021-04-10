@@ -10,7 +10,6 @@ import SwiftUI
 struct EpisodeList: View {
 
     @EnvironmentObject var episodesViewModel: ViewModelEpisodes
-
     @State var showSeason: [Bool] = []
     
     var body: some View {
@@ -23,7 +22,14 @@ struct EpisodeList: View {
                             ForEach(episodesViewModel.episodesBySeason(season: season)) { episode in
                                 NavigationLink(
                                     destination: EpisodeDetail(episode: episode),
-                                    label: { EpisodeSeason(episode: episode, showNameEpisode: true) }
+                                    label: {
+                                        VStack {
+                                            Text("[\(episode.number)] \(episode.name)").bold()
+                                            if let episodeEditable = episodesViewModel.episodeEditableById(id: episode.id) {
+                                                EpisodeSeason(episode: episodeEditable)
+                                            }
+                                        }
+                                    }
                                 )
                             }
                         }
@@ -42,7 +48,6 @@ struct EpisodeList: View {
 struct SeasonView: View {
 
     @State var isShowAllEpisodesSeason: Bool = false
-
     let season: Int
 
     var body: some View {

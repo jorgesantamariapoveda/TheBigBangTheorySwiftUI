@@ -30,9 +30,9 @@ final class ViewModelEpisodes: ObservableObject {
                 let newEpisodeEditable = EpisodeEditable(
                     id: episode.id,
                     season: episode.season,
-                    viewed: false,
+                    viewed: true,
                     isFavorite: true,
-                    score: 1,
+                    score: 5,
                     notes: "")
                 episodesEditables.append(newEpisodeEditable)
             }
@@ -50,6 +50,10 @@ final class ViewModelEpisodes: ObservableObject {
     }
 
     // MARK: - Episodes editables...
+
+    func episodeEditableById(id: Int) -> EpisodeEditable? {
+        episodesEditables.first { $0.id == id }
+    }
 
     func updateEpisodeEditable(episode: EpisodeEditable, index: Int) {
         episodesEditables[index] = episode

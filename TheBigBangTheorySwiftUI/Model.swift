@@ -50,6 +50,7 @@ struct PersistenceModel {
         }
         url.appendPathComponent(PersistenceModel.filenameEpisoseEditable)
         url.appendPathExtension("json")
+        print("\(url.path)")
 
         if let model = loadJSON(url: url, type: [EpisodeEditable].self) {
             return model
@@ -93,6 +94,10 @@ struct PersistenceModel {
             name: "Pilot",
             url: URL(string: "https://www.tvmaze.com/episodes/2913/the-big-bang-theory-1x01-pilot")!
         )
+    }
+
+    func testEpisodeEditable() -> EpisodeEditable {
+        EpisodeEditable(id: 1, season: 1, viewed: false, isFavorite: false, score: 1, notes: "test")
     }
 
 }

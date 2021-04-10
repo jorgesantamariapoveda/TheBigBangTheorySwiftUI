@@ -10,7 +10,6 @@ import SwiftUI
 struct EpisodeDetail: View {
 
     @EnvironmentObject var episodesViewModel: ViewModelEpisodes
-    
     let episode: Episode
 
     var body: some View {
@@ -37,8 +36,10 @@ struct EpisodeDetail: View {
                     .padding([.horizontal, .top])
                 Divider()
                     .padding()
-                EpisodeSeason(episode: episode, showNameEpisode: false)
-                    .padding(.horizontal)
+                if let episodeEditable = episodesViewModel.episodeEditableById(id: episode.id) {
+                    EpisodeSeason(episode: episodeEditable)
+                        .padding(.horizontal)
+                }
             }
         }
         .navigationBarTitle("\(episode.name)", displayMode: .inline)

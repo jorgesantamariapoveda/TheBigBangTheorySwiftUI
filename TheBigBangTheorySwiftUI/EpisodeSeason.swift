@@ -9,46 +9,36 @@ import SwiftUI
 
 struct EpisodeSeason: View {
 
-    @EnvironmentObject var episodesViewModel: ViewModelEpisodes
-
-    let episode: Episode
-    let showNameEpisode: Bool
-    
-    @State private var isShow: Bool = false
-    @State private var isFavorite: Bool = false
-    @State private var numStars: Int = 1
-    @State private var notes: String = ""
+    @ObservedObject var components = EpisodeEditableComponents()
+    let episode: EpisodeEditable
 
     var body: some View {
         VStack(spacing: 8) {
-            if showNameEpisode {
-                Text("[\(episode.number)] \(episode.name)").bold()
-            }
-            Toggle("Viewed", isOn: $isShow)
-            Toggle("Favorite", isOn: $isFavorite)
+            Toggle("Viewed", isOn: $components.viewed)
+            Toggle("Favorite", isOn: $components.isFavorite)
             HStack {
                 Text("Stars")
-                Picker("Stars", selection: $numStars) {
+                Picker("Stars", selection: $components.score) {
                     ForEach(1..<6) { item in
-                        Image(systemName: numStars + 1 >= item ? "star.fill" : "star").tag(item)
+                        Image(systemName: components.score + 1 > item ? "star.fill" : "star").tag(item)
                     }
                 }
                 .pickerStyle(SegmentedPickerStyle())
             }
             VStack(alignment: .leading) {
                 Text("Notes")
-                TextEditor(text: $notes)
+                TextEditor(text: $components.notes)
             }
+        }
+        .onAppear {
+            components.initForm(episode: episode)
         }
     }
 }
 
 struct EpisodeSeason_Previews: PreviewProvider {
     
-    static var episodesViewModel = ViewModelEpisodes()
-    
     static var previews: some View {
-        EpisodeSeason(episode: PersistenceModel.shared.testEpisode(), showNameEpisode: true)
-            .environmentObject(episodesViewModel)
+        EpisodeSeason(episode: PersistenceModel.shared.testEpisodeEditable())
     }
 }
