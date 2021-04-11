@@ -97,7 +97,7 @@ struct PersistenceModel {
     }
 
     func testEpisodeEditable() -> EpisodeEditable {
-        EpisodeEditable(id: 1, season: 1, viewed: false, isFavorite: false, score: 1, notes: "test")
+        EpisodeEditable(id: 1, season: 1, viewed: false, isFavorite: false, score: 0, notes: "test")
     }
 
 }

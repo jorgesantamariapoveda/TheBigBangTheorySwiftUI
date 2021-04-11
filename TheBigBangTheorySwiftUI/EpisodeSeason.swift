@@ -19,8 +19,8 @@ struct EpisodeSeason: View {
             HStack {
                 Text("Stars")
                 Picker("Stars", selection: $components.score) {
-                    ForEach(1..<6) { item in
-                        Image(systemName: components.score + 1 > item ? "star.fill" : "star").tag(item)
+                    ForEach(0..<5) { item in
+                        Image(systemName: components.score >= item ? "star.fill" : "star").tag(item)
                     }
                 }
                 .pickerStyle(SegmentedPickerStyle())
@@ -30,6 +30,7 @@ struct EpisodeSeason: View {
                 TextEditor(text: $components.notes)
             }
         }
+        .padding(.horizontal)
         .onAppear {
             components.initForm(episode: episode)
         }

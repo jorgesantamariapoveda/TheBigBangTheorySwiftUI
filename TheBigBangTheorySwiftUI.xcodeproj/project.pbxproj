@@ -15,6 +15,7 @@
 		CF003CA7260E7B3B00E6B79B /* EpisodeDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF003CA6260E7B3B00E6B79B /* EpisodeDetail.swift */; };
 		CF003CAA260E7B4700E6B79B /* FavoriteList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF003CA9260E7B4700E6B79B /* FavoriteList.swift */; };
 		CF003CB4260E7D1600E6B79B /* BigBang.json in Resources */ = {isa = PBXBuildFile; fileRef = CF003CB3260E7D1600E6B79B /* BigBang.json */; };
+		CF09909F2622C72200E3F45D /* SearchBarSwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF09909E2622C72200E3F45D /* SearchBarSwiftUI.swift */; };
 		CF22F8452621A25C0057BBF5 /* EpisodeEditableComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF22F8442621A25C0057BBF5 /* EpisodeEditableComponents.swift */; };
 		CF407031261AF90300910075 /* ViewModelEpisodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF407030261AF90300910075 /* ViewModelEpisodes.swift */; };
 		CFB26BA726125F8C00605A1D /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB26BA626125F8C00605A1D /* Model.swift */; };
@@ -32,6 +33,7 @@
 		CF003CA6260E7B3B00E6B79B /* EpisodeDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetail.swift; sourceTree = "<group>"; };
 		CF003CA9260E7B4700E6B79B /* FavoriteList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteList.swift; sourceTree = "<group>"; };
 		CF003CB3260E7D1600E6B79B /* BigBang.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BigBang.json; sourceTree = "<group>"; };
+		CF09909E2622C72200E3F45D /* SearchBarSwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarSwiftUI.swift; sourceTree = "<group>"; };
 		CF22F8442621A25C0057BBF5 /* EpisodeEditableComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeEditableComponents.swift; sourceTree = "<group>"; };
 		CF407030261AF90300910075 /* ViewModelEpisodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelEpisodes.swift; sourceTree = "<group>"; };
 		CFB26BA626125F8C00605A1D /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 				CF003CAC260E7B7500E6B79B /* Episodes */,
 				CF003CB1260E7BC100E6B79B /* Favorites */,
 				CFB26BA9261260B000605A1D /* Model */,
+				CF0990A12622C72B00E3F45D /* Extension */,
 				CF003C43260E748F00E6B79B /* Assets.xcassets */,
 				CF003C48260E748F00E6B79B /* Info.plist */,
 				CF003CB3260E7D1600E6B79B /* BigBang.json */,
@@ -92,9 +95,9 @@
 			isa = PBXGroup;
 			children = (
 				CF003CA3260E7B2F00E6B79B /* EpisodeList.swift */,
+				CF003CA6260E7B3B00E6B79B /* EpisodeDetail.swift */,
 				CFF72B8F261B5E91007304D5 /* EpisodeSeason.swift */,
 				CF22F8442621A25C0057BBF5 /* EpisodeEditableComponents.swift */,
-				CF003CA6260E7B3B00E6B79B /* EpisodeDetail.swift */,
 			);
 			name = Episodes;
 			sourceTree = "<group>";
@@ -114,6 +117,14 @@
 				CF003C41260E748E00E6B79B /* ContentView.swift */,
 			);
 			name = App;
+			sourceTree = "<group>";
+		};
+		CF0990A12622C72B00E3F45D /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				CF09909E2622C72200E3F45D /* SearchBarSwiftUI.swift */,
+			);
+			name = Extension;
 			sourceTree = "<group>";
 		};
 		CFB26BA9261260B000605A1D /* Model */ = {
@@ -204,6 +215,7 @@
 				CF003CA7260E7B3B00E6B79B /* EpisodeDetail.swift in Sources */,
 				CF407031261AF90300910075 /* ViewModelEpisodes.swift in Sources */,
 				CF003CA4260E7B2F00E6B79B /* EpisodeList.swift in Sources */,
+				CF09909F2622C72200E3F45D /* SearchBarSwiftUI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

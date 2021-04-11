@@ -15,6 +15,7 @@ struct EpisodeList: View {
     var body: some View {
         NavigationView {
             List {
+                SearchBarSwiftUI()
                 ForEach(episodesViewModel.seasons, id:\.self) { season in
                     Section(
                         header: SeasonView(season: season),
@@ -24,10 +25,12 @@ struct EpisodeList: View {
                                     destination: EpisodeDetail(episode: episode),
                                     label: {
                                         VStack {
-                                            Text("[\(episode.number)] \(episode.name)").bold()
-                                            if let episodeEditable = episodesViewModel.episodeEditableById(id: episode.id) {
-                                                EpisodeSeason(episode: episodeEditable)
-                                            }
+                                            Text("[\(episode.number)] \(episode.name)")
+                                                .font(.callout)
+                                                .lineLimit(1)
+//                                            if let episodeEditable = episodesViewModel.episodeEditableById(id: episode.id) {
+//                                                EpisodeSeason(episode: episodeEditable)
+//                                            }
                                         }
                                     }
                                 )
@@ -36,7 +39,7 @@ struct EpisodeList: View {
                     )
                 }
             }
-            .listStyle(InsetGroupedListStyle())
+            .listStyle(InsetListStyle())
             .navigationTitle("Episodes")
         }
         .onAppear {

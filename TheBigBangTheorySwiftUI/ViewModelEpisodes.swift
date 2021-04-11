@@ -17,6 +17,8 @@ final class ViewModelEpisodes: ObservableObject {
         }
     }
 
+    @Published var search = ""
+
     var seasons: [Int] {
         Array(Set(episodes.map { $0.season })).sorted()
     }
@@ -30,9 +32,9 @@ final class ViewModelEpisodes: ObservableObject {
                 let newEpisodeEditable = EpisodeEditable(
                     id: episode.id,
                     season: episode.season,
-                    viewed: true,
-                    isFavorite: true,
-                    score: 5,
+                    viewed: false,
+                    isFavorite: false,
+                    score: 0,
                     notes: "")
                 episodesEditables.append(newEpisodeEditable)
             }
@@ -42,7 +44,16 @@ final class ViewModelEpisodes: ObservableObject {
     // MARK: - Episodes...
 
     func episodesBySeason(season: Int) -> [Episode] {
-        episodes.filter { $0.season == season }.sorted { $0.id < $1.id }
+        if search.isEmpty {
+            return episodes
+                .filter { $0.season == season }
+                .sorted { $0.id < $1.id }
+        } else {
+            return episodes
+                .filter { $0.name.contains(search) }
+                .filter { $0.season == season }
+                .sorted { $0.id < $1.id }
+        }
     }
 
     func episodeById(id: Int) -> Episode? {
@@ -55,8 +66,10 @@ final class ViewModelEpisodes: ObservableObject {
         episodesEditables.first { $0.id == id }
     }
 
-    func updateEpisodeEditable(episode: EpisodeEditable, index: Int) {
-        episodesEditables[index] = episode
+    func updateEpisodeEditable(episode: EpisodeEditable) {
+        if let index = episodesEditables.firstIndex(where: { $0.id == episode.id }) {
+            episodesEditables[index] = episode
+        }
     }
 
     func episodesEditablesFavorites() -> [EpisodeEditable] {

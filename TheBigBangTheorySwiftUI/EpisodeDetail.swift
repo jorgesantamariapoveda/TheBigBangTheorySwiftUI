@@ -9,6 +9,7 @@ import SwiftUI
 
 struct EpisodeDetail: View {
 
+    @Environment(\.presentationMode) var presentation
     @EnvironmentObject var episodesViewModel: ViewModelEpisodes
     let episode: Episode
 
@@ -23,26 +24,38 @@ struct EpisodeDetail: View {
                     Text("Episode: \(episode.number)")
                     Spacer()
                     Text("Runtime: \(episode.runtime)")
-                }.padding([.horizontal, .top])
+                }
+                .padding(.top)
                 HStack {
                     Text("Season: \(episode.season)")
                     Spacer()
                     Text("Airdate: \(episode.airdate)")
-                }.padding(.horizontal)
+                }
                 Text("\(episode.summary)")
-                    .padding([.horizontal, .top])
-                Text("URL: \(episode.url)")
+                    .padding(.top)
+                Text("\(episode.url)")
                     .font(.footnote)
-                    .padding([.horizontal, .top])
+                    .padding(.top, 5)
                 Divider()
-                    .padding()
                 if let episodeEditable = episodesViewModel.episodeEditableById(id: episode.id) {
                     EpisodeSeason(episode: episodeEditable)
-                        .padding(.horizontal)
                 }
             }
+            .padding(.horizontal)
         }
         .navigationBarTitle("\(episode.name)", displayMode: .inline)
+        .navigationBarItems(
+            leading: Button(
+                action: { presentation.wrappedValue.dismiss() },
+                label: { Text("Cancel") }),
+            trailing: Button(
+                action: {
+                    if let episodeEditable = episodesViewModel.episodeEditableById(id: episode.id) {
+                        episodesViewModel.updateEpisodeEditable(episode: episodeEditable)
+                    }
+                },
+                label: { Text("Save") }))
+        .navigationBarBackButtonHidden(true)
     }
 }
 
@@ -51,7 +64,9 @@ struct EpisodeDetail_Previews: PreviewProvider {
     static var episodesViewModel = ViewModelEpisodes()
 
     static var previews: some View {
-        EpisodeDetail(episode: PersistenceModel.shared.testEpisode())
-            .environmentObject(episodesViewModel)
+        NavigationView {
+            EpisodeDetail(episode: PersistenceModel.shared.testEpisode())
+                .environmentObject(episodesViewModel)
+        }
     }
 }
