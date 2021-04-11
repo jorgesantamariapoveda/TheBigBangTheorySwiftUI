@@ -29,9 +29,12 @@ struct EpisodeList: View {
                                                 NavigationLink(
                                                     destination: EpisodeDetail(episode: episode, episodeEditable: episodeEditable),
                                                     label: {
-                                                        Text("[\(episode.number)] \(episode.name)")
-                                                            .font(.callout)
-                                                            .lineLimit(1)
+                                                        VStack {
+                                                            Text("[\(episode.number)] \(episode.name)")
+                                                                .font(.callout)
+                                                                .lineLimit(1)
+                                                            EpisodeSeason(episodeEditable: episodeEditable)
+                                                        }
                                                     }
                                                 )
                                             }

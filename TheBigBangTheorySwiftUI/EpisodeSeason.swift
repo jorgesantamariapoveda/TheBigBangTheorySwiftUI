@@ -7,11 +7,10 @@
 
 import SwiftUI
 
-/*
 struct EpisodeSeason: View {
 
     @ObservedObject var components = EpisodeSeasonComponents()
-    let episode: EpisodeEditable
+    let episodeEditable: EpisodeEditable
 
     var body: some View {
         VStack(spacing: 8) {
@@ -33,7 +32,7 @@ struct EpisodeSeason: View {
         }
         .padding(.horizontal)
         .onAppear {
-            components.initForm(episode: episode)
+            components.initForm(episodeEditable: episodeEditable)
         }
     }
 }
@@ -41,7 +40,6 @@ struct EpisodeSeason: View {
 struct EpisodeSeason_Previews: PreviewProvider {
 
     static var previews: some View {
-        EpisodeSeason(episode: PersistenceModel.shared.testEpisodeEditable())
+        EpisodeSeason(episodeEditable: PersistenceModel.shared.testEpisodeEditable())
     }
 }
-*/
