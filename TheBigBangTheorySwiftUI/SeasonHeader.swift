@@ -9,12 +9,12 @@ import SwiftUI
 
 struct SeasonHeader: View {
     @EnvironmentObject var episodesViewModel: ViewModelEpisodes
-    
+
     let season: Int
     @Binding var showAllEpisodes: Bool
-    
+
     @State var marcar = false
-    
+
     var body: some View {
         VStack {
             Text("Season \(season)")
@@ -51,9 +51,9 @@ struct SeasonHeader: View {
     }}
 
 struct SeasonHeader_Previews: PreviewProvider {
-    
+
     static var episodesViewModel = ViewModelEpisodes()
-    
+
     static var previews: some View {
         SeasonHeader(season: 1, showAllEpisodes: .constant(true))
             .environmentObject(episodesViewModel)
