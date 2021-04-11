@@ -51,8 +51,12 @@ struct EpisodeList: View {
 
 struct SeasonView: View {
 
+    @EnvironmentObject var episodesViewModel: ViewModelEpisodes
+
     let season: Int
     @Binding var show: Bool
+
+    @State var marcar = false
 
     var body: some View {
         VStack {
@@ -69,6 +73,18 @@ struct SeasonView: View {
                     Image(systemName: show ? "chevron.right" : "chevron.down")
                 }
             })
+            Button(
+                action: {
+                    marcar.toggle()
+                    episodesViewModel.selectedAllEpisodesBySeason(season: season, isViewed: marcar)
+                },
+                label: {
+                    HStack {
+                        Text(marcar ? "Unviewed" : "Viewed")
+                            .font(.headline)
+                        Image(systemName: marcar ? "eye" : "eye.slash")
+                    }
+                })
         }
         .padding(.bottom)
     }
