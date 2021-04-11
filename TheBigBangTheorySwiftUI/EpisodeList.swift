@@ -10,7 +10,7 @@ import SwiftUI
 struct EpisodeList: View {
 
     @EnvironmentObject var episodesViewModel: ViewModelEpisodes
-    @State var show = false
+    @State var showAllEpisodes = false
 
     var body: some View {
         NavigationView {
@@ -20,10 +20,10 @@ struct EpisodeList: View {
                     let episodes = episodesViewModel.episodesBySeason(season: season)
                     if episodes.count > 0 {
                         Section(header:
-                                    SeasonView(season: season, show: $show)
-                                    .onTapGesture { show.toggle() },
+                                    SeasonHeader(season: season, showAllEpisodes: $showAllEpisodes)
+                                    .onTapGesture { showAllEpisodes.toggle() },
                                 content: {
-                                    if show {
+                                    if showAllEpisodes {
                                         ForEach(episodes) { episode in
                                             if let episodeEditable = episodesViewModel.episodeEditableById(id: episode.id) {
                                                 NavigationLink(
@@ -46,47 +46,6 @@ struct EpisodeList: View {
             .navigationTitle("Episodes")
             .animation(.linear)
         }
-    }
-}
-
-struct SeasonView: View {
-
-    @EnvironmentObject var episodesViewModel: ViewModelEpisodes
-
-    let season: Int
-    @Binding var show: Bool
-
-    @State var marcar = false
-
-    var body: some View {
-        VStack {
-            Text("Season \(season)")
-                .font(.title2).bold()
-            Image("season\(season)")
-                .resizable()
-                .scaledToFit()
-                .padding([.horizontal, .bottom])
-            Button(action: { show.toggle() }, label: {
-                HStack {
-                    Text(show ? "Hide all episodes" : "Show all episodes")
-                        .font(.headline)
-                    Image(systemName: show ? "chevron.right" : "chevron.down")
-                }
-            })
-            Button(
-                action: {
-                    marcar.toggle()
-                    episodesViewModel.selectedAllEpisodesBySeason(season: season, isViewed: marcar)
-                },
-                label: {
-                    HStack {
-                        Text(marcar ? "Unviewed" : "Viewed")
-                            .font(.headline)
-                        Image(systemName: marcar ? "eye" : "eye.slash")
-                    }
-                })
-        }
-        .padding(.bottom)
     }
 }
 
