@@ -8,51 +8,49 @@
 import SwiftUI
 
 struct EpisodeList: View {
-
+    
     @EnvironmentObject var episodesViewModel: ViewModelEpisodes
-    @State var showSeason: [Bool] = []
+    @State var show = false
     
     var body: some View {
         NavigationView {
             List {
                 SearchBarSwiftUI()
                 ForEach(episodesViewModel.seasons, id:\.self) { season in
-                    Section(
-                        header: SeasonView(season: season),
-                        content: {
-                            ForEach(episodesViewModel.episodesBySeason(season: season)) { episode in
-                                NavigationLink(
-                                    destination: EpisodeDetail(episode: episode),
-                                    label: {
-                                        VStack {
-                                            Text("[\(episode.number)] \(episode.name)")
-                                                .font(.callout)
-                                                .lineLimit(1)
-//                                            if let episodeEditable = episodesViewModel.episodeEditableById(id: episode.id) {
-//                                                EpisodeSeason(episode: episodeEditable)
-//                                            }
+                    Section(header:
+                                SeasonView(season: season, show: $show)
+                                .onTapGesture { show.toggle() },
+                            content: {
+                                if show {
+                                    ForEach(episodesViewModel.episodesBySeason(season: season)) { episode in
+                                        if let episodeEditable = episodesViewModel.episodeEditableById(id: episode.id) {
+                                            NavigationLink(
+                                                destination: EpisodeDetail(episode: episode, episodeEditable: episodeEditable),
+                                                label: {
+                                                    Text("[\(episode.number)] \(episode.name)")
+                                                        .font(.callout)
+                                                        .lineLimit(1)
+                                                }
+                                            )
                                         }
                                     }
-                                )
+                                }
                             }
-                        }
                     )
                 }
             }
             .listStyle(InsetListStyle())
             .navigationTitle("Episodes")
-        }
-        .onAppear {
-            showSeason.append(contentsOf: Array(repeating: false, count: episodesViewModel.seasons.count))
+            .animation(.linear)
         }
     }
 }
 
 struct SeasonView: View {
-
-    @State var isShowAllEpisodesSeason: Bool = false
+    
     let season: Int
-
+    @Binding var show: Bool
+    
     var body: some View {
         VStack {
             Text("Season \(season)")
@@ -60,19 +58,23 @@ struct SeasonView: View {
             Image("season\(season)")
                 .resizable()
                 .scaledToFit()
-            HStack {
-                Toggle("Watched all episodes", isOn: $isShowAllEpisodesSeason)
-                    .font(.footnote)
-            }
-            .padding([.horizontal, .bottom])
+                .padding([.horizontal, .bottom])
+            Button(action: { show.toggle() }, label: {
+                HStack {
+                    Text(show ? "Hide all episodes" : "Show all episodes")
+                        .font(.headline)
+                    Image(systemName: show ? "chevron.right" : "chevron.down")
+                }
+            })
         }
+        .padding(.bottom)
     }
 }
 
 struct EpisodeList_Previews: PreviewProvider {
-
+    
     static var episodesViewModel = ViewModelEpisodes()
-
+    
     static var previews: some View {
         EpisodeList()
             .environmentObject(episodesViewModel)

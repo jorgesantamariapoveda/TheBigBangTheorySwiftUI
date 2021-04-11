@@ -7,9 +7,10 @@
 
 import SwiftUI
 
+/*
 struct EpisodeSeason: View {
 
-    @ObservedObject var components = EpisodeEditableComponents()
+    @ObservedObject var components = EpisodeSeasonComponents()
     let episode: EpisodeEditable
 
     var body: some View {
@@ -38,8 +39,9 @@ struct EpisodeSeason: View {
 }
 
 struct EpisodeSeason_Previews: PreviewProvider {
-    
+
     static var previews: some View {
         EpisodeSeason(episode: PersistenceModel.shared.testEpisodeEditable())
     }
 }
+*/

@@ -16,9 +16,10 @@ struct FavoriteList: View {
             ScrollView {
                 LazyVGrid(columns: [GridItem(), GridItem()], content: {
                     ForEach(episodesViewModel.episodesEditablesFavorites()) { episodeFavorite in
-                        if let episode = episodesViewModel.episodeById(id: episodeFavorite.id) {
+                        if let episode = episodesViewModel.episodeById(id: episodeFavorite.id),
+                           let episodeEditable = episodesViewModel.episodeEditableById(id: episode.id) {
                             NavigationLink(
-                                destination: EpisodeDetail(episode: episode),
+                                destination: EpisodeDetail(episode: episode, episodeEditable: episodeEditable),
                                 label: {
                                     FavoriteView(episode: episode, episodeFavorite: episodeFavorite)
                                 }
