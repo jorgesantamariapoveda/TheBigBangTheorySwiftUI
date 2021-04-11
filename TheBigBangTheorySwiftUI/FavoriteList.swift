@@ -48,10 +48,17 @@ struct FavoriteView: View {
                 .scaledToFill()
                 .frame(width: 150, height: 100)
                 .cornerRadius(10)
-            Text("Stars: \(episodeFavorite.score)")
-                .font(.footnote)
-            Image(systemName: episodeFavorite.viewed ? "eye" : "eye.slash")
-                .font(.footnote)
+            HStack {
+                Image(systemName: episodeFavorite.viewed ? "eye" : "eye.slash")
+                    .font(.footnote)
+                Spacer()
+                ForEach(0..<5) { item in
+                    Image(systemName: episodeFavorite.score >= item ? "star.fill" : "star").tag(item)
+                        .font(.caption2)
+                }
+            }
+            .padding(.horizontal)
+            .padding(.top, 4)
         }
         .padding(8)
     }
