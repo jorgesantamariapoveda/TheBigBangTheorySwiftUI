@@ -17,7 +17,7 @@
 		CF003CB4260E7D1600E6B79B /* BigBang.json in Resources */ = {isa = PBXBuildFile; fileRef = CF003CB3260E7D1600E6B79B /* BigBang.json */; };
 		CF09909F2622C72200E3F45D /* SearchBarSwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF09909E2622C72200E3F45D /* SearchBarSwiftUI.swift */; };
 		CF0990A6262307D600E3F45D /* SeasonHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0990A5262307D600E3F45D /* SeasonHeader.swift */; };
-		CF22F8452621A25C0057BBF5 /* EpisodeSeasonComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF22F8442621A25C0057BBF5 /* EpisodeSeasonComponents.swift */; };
+		CF22F8452621A25C0057BBF5 /* EpisodeComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF22F8442621A25C0057BBF5 /* EpisodeComponents.swift */; };
 		CF407031261AF90300910075 /* ViewModelEpisodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF407030261AF90300910075 /* ViewModelEpisodes.swift */; };
 		CFB26BA726125F8C00605A1D /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB26BA626125F8C00605A1D /* Model.swift */; };
 		CFF72B90261B5E91007304D5 /* EpisodeSeason.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF72B8F261B5E91007304D5 /* EpisodeSeason.swift */; };
@@ -36,7 +36,7 @@
 		CF003CB3260E7D1600E6B79B /* BigBang.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BigBang.json; sourceTree = "<group>"; };
 		CF09909E2622C72200E3F45D /* SearchBarSwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarSwiftUI.swift; sourceTree = "<group>"; };
 		CF0990A5262307D600E3F45D /* SeasonHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonHeader.swift; sourceTree = "<group>"; };
-		CF22F8442621A25C0057BBF5 /* EpisodeSeasonComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeSeasonComponents.swift; sourceTree = "<group>"; };
+		CF22F8442621A25C0057BBF5 /* EpisodeComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeComponents.swift; sourceTree = "<group>"; };
 		CF407030261AF90300910075 /* ViewModelEpisodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelEpisodes.swift; sourceTree = "<group>"; };
 		CFB26BA626125F8C00605A1D /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		CFF72B8F261B5E91007304D5 /* EpisodeSeason.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeSeason.swift; sourceTree = "<group>"; };
@@ -99,7 +99,7 @@
 				CF003CA3260E7B2F00E6B79B /* EpisodeList.swift */,
 				CF003CA6260E7B3B00E6B79B /* EpisodeDetail.swift */,
 				CFF72B8F261B5E91007304D5 /* EpisodeSeason.swift */,
-				CF22F8442621A25C0057BBF5 /* EpisodeSeasonComponents.swift */,
+				CF22F8442621A25C0057BBF5 /* EpisodeComponents.swift */,
 				CF0990A5262307D600E3F45D /* SeasonHeader.swift */,
 			);
 			name = Episodes;
@@ -211,7 +211,7 @@
 			files = (
 				CFF72B90261B5E91007304D5 /* EpisodeSeason.swift in Sources */,
 				CF003CAA260E7B4700E6B79B /* FavoriteList.swift in Sources */,
-				CF22F8452621A25C0057BBF5 /* EpisodeSeasonComponents.swift in Sources */,
+				CF22F8452621A25C0057BBF5 /* EpisodeComponents.swift in Sources */,
 				CF003C42260E748E00E6B79B /* ContentView.swift in Sources */,
 				CF003C40260E748E00E6B79B /* TheBigBangTheorySwiftUIApp.swift in Sources */,
 				CF0990A6262307D600E3F45D /* SeasonHeader.swift in Sources */,

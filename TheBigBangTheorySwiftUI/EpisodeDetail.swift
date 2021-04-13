@@ -12,7 +12,7 @@ struct EpisodeDetail: View {
     @Environment(\.presentationMode) var presentation
     @EnvironmentObject var episodesViewModel: ViewModelEpisodes
 
-    @ObservedObject var components = EpisodeSeasonComponents()
+    @ObservedObject var episodeComponents = EpisodeComponents()
     
     let episode: Episode
     let episodeEditable: EpisodeEditable
@@ -23,20 +23,20 @@ struct EpisodeDetail: View {
                 ViewEpisodeNotEditable
                 Divider()
                 VStack(spacing: 8) {
-                    Toggle("Viewed", isOn: $components.viewed)
-                    Toggle("Favorite", isOn: $components.isFavorite)
+                    Toggle("Viewed", isOn: $episodeComponents.viewed)
+                    Toggle("Favorite", isOn: $episodeComponents.isFavorite)
                     HStack {
                         Text("Stars")
-                        Picker("Stars", selection: $components.score) {
+                        Picker("Stars", selection: $episodeComponents.score) {
                             ForEach(0..<5) { item in
-                                Image(systemName: components.score >= item ? "star.fill" : "star").tag(item)
+                                Image(systemName: episodeComponents.score >= item ? "star.fill" : "star").tag(item)
                             }
                         }
                         .pickerStyle(SegmentedPickerStyle())
                     }
                     VStack(alignment: .leading) {
                         Text("Notes")
-                        TextEditor(text: $components.notes)
+                        TextEditor(text: $episodeComponents.notes)
                     }
                 }
             }
@@ -50,14 +50,14 @@ struct EpisodeDetail: View {
                 label: { Text("Cancel") }),
             trailing: Button(
                 action: {
-                    let newEpisodeEditable = components.newEpisodeEditable(episode: episodeEditable)
+                    let newEpisodeEditable = episodeComponents.newEpisodeEditable(episode: episodeEditable)
                     episodesViewModel.updateEpisodeEditable(episode: newEpisodeEditable)
                     presentation.wrappedValue.dismiss()
                 },
                 label: { Text("Save") }))
         .navigationBarBackButtonHidden(true)
         .onAppear {
-            components.initForm(episodeEditable: episodeEditable)
+            episodeComponents.initForm(episodeEditable: episodeEditable)
         }
     }
 

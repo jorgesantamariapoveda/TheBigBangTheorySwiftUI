@@ -9,30 +9,31 @@ import SwiftUI
 
 struct EpisodeSeason: View {
 
-    @ObservedObject var components = EpisodeSeasonComponents()
+    @ObservedObject var episodeComponents = EpisodeComponents()
+    
     let episodeEditable: EpisodeEditable
 
     var body: some View {
         VStack(spacing: 8) {
-            Toggle("Viewed", isOn: $components.viewed)
-            Toggle("Favorite", isOn: $components.isFavorite)
+            Toggle("Viewed", isOn: $episodeComponents.viewed)
+            Toggle("Favorite", isOn: $episodeComponents.isFavorite)
             HStack {
                 Text("Stars")
-                Picker("Stars", selection: $components.score) {
+                Picker("Stars", selection: $episodeComponents.score) {
                     ForEach(0..<5) { item in
-                        Image(systemName: components.score >= item ? "star.fill" : "star").tag(item)
+                        Image(systemName: episodeComponents.score >= item ? "star.fill" : "star").tag(item)
                     }
                 }
                 .pickerStyle(SegmentedPickerStyle())
             }
             VStack(alignment: .leading) {
                 Text("Notes")
-                TextEditor(text: $components.notes)
+                TextEditor(text: $episodeComponents.notes)
             }
         }
         .padding(.horizontal)
         .onAppear {
-            components.initForm(episodeEditable: episodeEditable)
+            episodeComponents.initForm(episodeEditable: episodeEditable)
         }
     }
 }

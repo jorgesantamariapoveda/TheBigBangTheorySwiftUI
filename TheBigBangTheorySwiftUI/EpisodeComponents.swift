@@ -1,5 +1,5 @@
 //
-//  EpisodeEditableComponents.swift
+//  EpisodeComponents.swift
 //  TheBigBangTheorySwiftUI
 //
 //  Created by Jorge on 10/04/2021.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-final class EpisodeSeasonComponents: ObservableObject {
+final class EpisodeComponents: ObservableObject {
 
     @Published var viewed = false
     @Published var isFavorite = false

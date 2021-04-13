@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SeasonHeader: View {
+
     @EnvironmentObject var episodesViewModel: ViewModelEpisodes
 
     let season: Int
