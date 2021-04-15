@@ -29,11 +29,14 @@ struct EpisodeList: View {
                                                 NavigationLink(
                                                     destination: EpisodeDetail(episode: episode, episodeEditable: episodeEditable),
                                                     label: {
-                                                        VStack {
+                                                        HStack {
                                                             Text("[\(episode.number)] \(episode.name)")
                                                                 .font(.callout)
                                                                 .lineLimit(1)
-                                                            EpisodeSeason(episodeEditable: episodeEditable)
+                                                                .minimumScaleFactor(0.5)
+                                                            Spacer()
+                                                            Image(systemName: episodeEditable.viewed ? "eye" : "")
+                                                            Image(systemName: episodeEditable.isFavorite ? "heart.fill" : "")
                                                         }
                                                     }
                                                 )
@@ -46,7 +49,7 @@ struct EpisodeList: View {
                 }
             }
             .listStyle(InsetListStyle())
-            .navigationTitle("Episodes")
+            .navigationTitle("The Big Bang Theory")
             .animation(.linear)
         }
     }

@@ -13,13 +13,11 @@ struct ContentView: View {
         TabView {
             EpisodeList()
                 .tabItem {
-                    Text("Episodes")
-                    Image(systemName: "film")
+                    Label("Episodes", systemImage: "film")
                 }
             FavoriteList()
                 .tabItem {
-                    Image(systemName: "heart")
-                    Text("Favorites")
+                    Label("Favorites", systemImage: "heart")
                 }
         }
     }

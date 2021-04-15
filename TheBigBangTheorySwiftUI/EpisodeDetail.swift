@@ -22,23 +22,40 @@ struct EpisodeDetail: View {
             VStack {
                 ViewEpisodeNotEditable
                 Divider()
-                VStack(spacing: 8) {
-                    Toggle("Viewed", isOn: $episodeComponents.viewed)
-                    Toggle("Favorite", isOn: $episodeComponents.isFavorite)
-                    HStack {
-                        Text("Stars")
-                        Picker("Stars", selection: $episodeComponents.score) {
-                            ForEach(0..<5) { item in
-                                Image(systemName: episodeComponents.score >= item ? "star.fill" : "star").tag(item)
-                            }
+                HStack {
+                    Spacer()
+                    Button(
+                        action: {
+                            episodeComponents.viewed.toggle()
+                        },
+                        label: {
+                            Image(systemName: episodeComponents.viewed ? "eye" : "eye.slash")
                         }
-                        .pickerStyle(SegmentedPickerStyle())
-                    }
-                    VStack(alignment: .leading) {
-                        Text("Notes")
-                        TextEditor(text: $episodeComponents.notes)
+                    )
+                    Spacer()
+                    Button(
+                        action: {
+                            episodeComponents.isFavorite.toggle()
+                        },
+                        label: {
+                            Image(systemName: episodeComponents.isFavorite ? "heart.fill" : "heart")
+                        }
+                    )
+                    Spacer()
+                }
+                .padding()
+                Picker("Stars", selection: $episodeComponents.score) {
+                    ForEach(0..<5) { item in
+                        Image(systemName: episodeComponents.score >= item ? "star.fill" : "star").tag(item)
                     }
                 }
+                .pickerStyle(SegmentedPickerStyle())
+                .padding()
+                VStack(alignment: .leading) {
+                    Text("Notes")
+                    TextEditor(text: $episodeComponents.notes)
+                }
+                .padding()
             }
             .padding(.horizontal)
             .padding(.top)

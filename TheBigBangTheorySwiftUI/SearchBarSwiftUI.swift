@@ -26,7 +26,7 @@ struct SearchBarSwiftUI: View {
                 }
             )
         }
-        .padding()
+        .padding(8)
         .background(
             RoundedRectangle(cornerRadius: 15, style: .continuous)
                 .fill(Color.gray.opacity(0.2))

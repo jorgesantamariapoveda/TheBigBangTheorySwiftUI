@@ -18,37 +18,33 @@ struct SeasonHeader: View {
 
     var body: some View {
         VStack {
-            Text("Season \(season)")
-                .font(.title2).bold()
-            Image("season\(season)")
-                .resizable()
-                .scaledToFit()
-                .padding([.horizontal, .bottom])
-            Button(
-                action: {
-                    showAllEpisodes.toggle()
-                },
-                label: {
-                    HStack {
-                        Text(showAllEpisodes ? "Hide all episodes" : "Show all episodes")
-                            .font(.headline)
-                        Image(systemName: showAllEpisodes ? "chevron.right" : "chevron.down")
-                    }
-                })
-            Button(
-                action: {
-                    marcar.toggle()
-                    episodesViewModel.selectedAllEpisodesBySeason(season: season, isViewed: marcar)
-                },
-                label: {
-                    HStack {
-                        Text(marcar ? "Unviewed" : "Viewed")
-                            .font(.headline)
+            HStack {
+                Text("Season \(season)")
+                    .font(.title2).bold()
+                Button(
+                    action: {
+                        marcar.toggle()
+                        episodesViewModel.selectedAllEpisodesBySeason(season: season, isViewed: marcar)
+                    },
+                    label: {
                         Image(systemName: marcar ? "eye" : "eye.slash")
-                    }
+                    })
+            }
+            HStack {
+                Image("season\(season)")
+                    .resizable()
+                    .scaledToFit()
+                    .cornerRadius(10)
+                    .padding([.horizontal, .bottom])
+                Button(
+                    action: {
+                        showAllEpisodes.toggle()
+                    },
+                    label: {
+                        Image(systemName: showAllEpisodes ? "chevron.right" : "chevron.down")
                 })
+            }
         }
-        .padding(.bottom)
     }}
 
 struct SeasonHeader_Previews: PreviewProvider {

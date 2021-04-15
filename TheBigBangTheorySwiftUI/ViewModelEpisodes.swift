@@ -52,7 +52,7 @@ final class ViewModelEpisodes: ObservableObject {
             return episodes
                 .filter { $0.season == season }
                 .sorted { $0.id < $1.id }
-                .filter { $0.name.contains(search) }
+                .filter { $0.name.contains(search.uppercased()) }
         }
     }
 
