@@ -9,16 +9,23 @@ import SwiftUI
 
 struct ContentView: View {
 
+    @State var selection = 0
+
     var body: some View {
-        TabView {
+        TabView(selection: $selection) {
             EpisodeList()
                 .tabItem {
-                    Label("Episodes", systemImage: "film")
+                    Label("Episodes",
+                          systemImage: selection == 0 ? "film.fill" : "film")
                 }
+                .tag(0)
+
             FavoriteList()
                 .tabItem {
-                    Label("Favorites", systemImage: "heart")
+                    Label("Favorites",
+                          systemImage: selection == 1 ? "heart.fill" : "heart")
                 }
+                .tag(1)
         }
     }
 }
