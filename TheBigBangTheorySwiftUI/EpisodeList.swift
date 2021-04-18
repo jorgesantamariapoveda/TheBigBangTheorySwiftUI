@@ -35,8 +35,10 @@ struct EpisodeList: View {
                                                                 .lineLimit(1)
                                                                 .minimumScaleFactor(0.5)
                                                             Spacer()
-                                                            Image(systemName: episodeEditable.viewed ? "eye" : "")
-                                                            Image(systemName: episodeEditable.isFavorite ? "heart.fill" : "")
+                                                            Image(systemName: "eye")
+                                                                .opacity(episodeEditable.viewed ? 1: 0)
+                                                            Image(systemName: "heart.fill")
+                                                                .opacity(episodeEditable.isFavorite ? 1: 0)
                                                         }
                                                     }
                                                 )
